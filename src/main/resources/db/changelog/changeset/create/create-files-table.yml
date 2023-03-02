@@ -1,0 +1,74 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create files table
+      author: Sabuhi Huseynov
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: files
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKeyName: pk_files
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: File name
+              - column:
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: Description of file
+              - column:
+                  name: path
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: File path
+              - column:
+                  name: extension
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: File extension
+              - column:
+                  name: mime_Type
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: File mime type
+              - column:
+                  name: size
+                  type: bigint
+                  constraints:
+                    nullable: false
+                  remarks: File size
+              - column:
+                  name: university_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: universities_files_fk
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: When the transaction created
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: When the record updated
+            remarks: Files Table
