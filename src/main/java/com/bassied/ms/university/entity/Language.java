@@ -1,22 +1,15 @@
 package com.bassied.ms.university.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Setter
 @Entity
-public class Language {
+public class Language extends BaseEntity{
 
-    @Id
-    @GeneratedValue
-    private Integer id;
     private String name;
 
     @ManyToOne

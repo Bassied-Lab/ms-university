@@ -35,4 +35,5 @@ public abstract class BaseEntity implements Serializable {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+
 }

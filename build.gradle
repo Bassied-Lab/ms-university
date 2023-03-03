@@ -28,7 +28,6 @@ dependencies {
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 	implementation 'org.postgresql:postgresql:42.5.4'
 	implementation 'org.liquibase:liquibase-core:4.19.0'
-
 }
 
 tasks.named('test') {
