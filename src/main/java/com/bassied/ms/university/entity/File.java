@@ -20,7 +20,7 @@ import lombok.Setter;
 @Entity
 @Table(uniqueConstraints = {
         @UniqueConstraint(columnNames = "path")
-})
+},name = "files")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
