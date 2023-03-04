@@ -22,7 +22,7 @@ databaseChangeLog:
                     nullable: false
                   remarks: Name of the faculty
               - column:
-                  name: logopath
+                  name: logo_path
                   type: varchar(255)
                   constraints:
                     nullable: false
@@ -95,7 +95,7 @@ databaseChangeLog:
                     nullable: false
                   remarks: fax of the university
               - column:
-                  name: logoPath
+                  name: logo_path
                   type: varchar(255)
                   constraints:
                     nullable: false
