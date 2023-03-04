@@ -3,6 +3,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/justesting
     username: postgres
     password: 12345
-
+  jpa:
+    show-sql: true
   liquibase:
     change-log: db/changelog/db.changelog-master.yml
