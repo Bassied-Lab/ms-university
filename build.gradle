@@ -19,16 +19,30 @@ repositories {
 }
 
 dependencies {
+	//spring web
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	//spring data jpa
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	//lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	//mapstruct
 	implementation 'org.mapstruct:mapstruct:1.5.3.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+
+	//spring data
 	implementation 'org.postgresql:postgresql:42.5.4'
 	implementation 'org.liquibase:liquibase-core:4.19.0'
+
+	//validation
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	//test
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
 
 tasks.named('test') {

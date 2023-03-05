@@ -1,62 +1,68 @@
 databaseChangeLog:
   - changeSet:
-      id: Create files table
+      id: Create Locations table
       author: Sabuhi Huseynov
       changes:
         - createTable:
             schemaName: public
-            tableName: files
+            tableName: locations
             columns:
               - column:
                   name: id
                   type: bigint
                   autoIncrement: true
                   constraints:
-                    primaryKeyName: pk_files
+                    primaryKeyName: pk_locations
                     primaryKey: true
                     nullable: false
               - column:
-                  name: name
+                  name: city_name
                   type: varchar(255)
                   constraints:
                     nullable: false
-                  remarks: File name
+                  remarks: city name
               - column:
-                  name: description
+                  name: country_name
                   type: varchar(255)
                   constraints:
                     nullable: false
-                  remarks: Description of file
+                  remarks: country
               - column:
-                  name: path
+                  name: address_az
                   type: varchar(255)
                   constraints:
                     nullable: false
-                  remarks: File path
+                  remarks: address az
               - column:
-                  name: extension
+                  name: address_en
                   type: varchar(255)
                   constraints:
                     nullable: false
-                  remarks: File extension
+                  remarks: address en
               - column:
-                  name: mime_Type
+                  name: address_ru
                   type: varchar(255)
                   constraints:
                     nullable: false
-                  remarks: File mime type
+                  remarks: address ru
               - column:
-                  name: size
-                  type: bigint
+                  name: longitude
+                  type: DOUBLE
                   constraints:
                     nullable: false
-                  remarks: File size
+                  remarks: longitude
+              - column:
+                  name: latitude
+                  type: DOUBLE
+                  constraints:
+                    nullable: false
+                  remarks: latitude
               - column:
                   name: university_id
                   type: bigint
                   constraints:
                     nullable: false
-                    foreignKeyName: universities_files_fk
+                    foreignKeyName: universities_locations_fk
               - column:
                   name: created_at
                   type: timestamp
@@ -71,4 +77,4 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                   remarks: When the record updated
-            remarks: Files Table
+            remarks: Locations Table

@@ -1,26 +1,32 @@
 databaseChangeLog:
   - changeSet:
-      id: Create students table
+      id: Create required documents table
       author: Sabuhi Huseynov
       changes:
         - createTable:
             schemaName: public
-            tableName: students
+            tableName: required_documents
             columns:
               - column:
                   name: id
                   type: bigint
                   autoIncrement: true
                   constraints:
-                    primaryKeyName: pk_students
+                    primaryKeyName: pk_required_documents
                     primaryKey: true
                     nullable: false
               - column:
-                  name: name
+                  name: title
                   type: varchar(255)
                   constraints:
                     nullable: false
-                  remarks: Student's name
+                  remarks: title of required document
+              - column:
+                  name: university_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: universities_required_documents_fk
               - column:
                   name: created_at
                   type: timestamp
@@ -35,38 +41,26 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                   remarks: When the record updated
-            remarks: Student Table
+            remarks: Required documents Table
   - changeSet:
       id: add-foreign-key
       author: Sabuhi Huseynov
       changes:
         - addForeignKeyConstraint:
-            baseColumnNames: country_id
-            baseTableName: cities
-            constraintName: cities_countries_fk
-            referencedColumnNames: id
-            referencedTableName: countries
-        - addForeignKeyConstraint:
             baseColumnNames: university_id
-            baseTableName: documents
-            constraintName: universities_documents_fk
+            baseTableName: foreign_students
+            constraintName: universities_foreign_students_fk
             referencedColumnNames: id
             referencedTableName: universities
         - addForeignKeyConstraint:
             baseColumnNames: university_id
-            baseTableName: files
-            constraintName: universities_files_fk
+            baseTableName: locations
+            constraintName: universities_locations_fk
             referencedColumnNames: id
             referencedTableName: universities
         - addForeignKeyConstraint:
-            baseColumnNames: faculty_id
-            baseTableName: languages
-            constraintName: faculties_languages_fk
+            baseColumnNames: university_id
+            baseTableName: required_documents
+            constraintName: universities_required_documents_fk
             referencedColumnNames: id
-            referencedTableName: faculties
-        - addForeignKeyConstraint:
-            baseColumnNames: city_id
-            baseTableName: universities
-            constraintName: cities_universities_fk
-            referencedColumnNames: id
-            referencedTableName: cities
+            referencedTableName: universities

@@ -16,22 +16,29 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: name
+                  name: name_az
                   type: varchar(255)
                   constraints:
                     nullable: false
-                  remarks: Name of the faculty
+                  remarks: Name of the faculty az
               - column:
-                  name: logo_path
+                  name: name_en
                   type: varchar(255)
                   constraints:
                     nullable: false
-                  remarks: Logo path
+                  remarks: Name of the faculty en
               - column:
-                  name: code
-                  type: INTEGER
+                  name: name_ru
+                  type: varchar(255)
                   constraints:
                     nullable: false
+                  remarks: Name of the faculty ru
+              - column:
+                  name: icon
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: Icon
               - column:
                   name: created_at
                   type: timestamp
@@ -83,23 +90,27 @@ databaseChangeLog:
                     nullable: false
                   remarks: Phone number of the university
               - column:
-                  name: address
-                  type: varchar(255)
-                  constraints:
-                    nullable: false
-                  remarks: address of the university
-              - column:
                   name: fax
                   type: varchar(255)
                   constraints:
                     nullable: false
                   remarks: fax of the university
               - column:
-                  name: logo_path
+                  name: foreign_students_count
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: faculty_count
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: logo
                   type: varchar(255)
                   constraints:
                     nullable: false
-                  remarks: logoPath of the university
+                  remarks: logo of the university
               - column:
                   name: min_price
                   type: INTEGER
@@ -107,11 +118,23 @@ databaseChangeLog:
                     nullable: false
                   remarks: min price for university
               - column:
-                  name: about_university
+                  name: about_university_az
                   type: varchar(255)
                   constraints:
                     nullable: false
-                  remarks: About university
+                  remarks: About university az
+              - column:
+                  name: about_university_en
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: About university en
+              - column:
+                  name: about_university_ru
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: About university ru
               - column:
                   name: longitude
                   type: DOUBLE
@@ -124,12 +147,6 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                   remarks: latitude for university
-              - column:
-                  name: city_id
-                  type: bigint
-                  constraints:
-                    nullable: false
-                    foreignKeyName: cities_universities_fk
               - column:
                   name: created_at
                   type: timestamp

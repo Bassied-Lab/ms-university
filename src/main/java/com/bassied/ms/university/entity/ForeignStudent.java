@@ -1,6 +1,6 @@
 package com.bassied.ms.university.entity;
 
-
+import com.bassied.ms.university.enums.Country;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -10,12 +10,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "documents")
-public class Document extends BaseEntity {
+@Table(name = "foreign_students")
+public class ForeignStudent extends BaseEntity {
 
-    private String description;
+    private Country country;
+    private Integer count;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private University university;
 
 }

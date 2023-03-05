@@ -5,13 +5,16 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @Entity
-@Table(name = "students")
-public class Student extends BaseEntity {
+@Table(name = "bookmarks")
+public class Bookmark extends BaseEntity {
 
-    private String name;
+    private Long userId;
+
+    private Long universityId;
+
+    private boolean bookmarker;
 
 }

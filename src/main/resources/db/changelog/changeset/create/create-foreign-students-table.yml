@@ -1,26 +1,38 @@
 databaseChangeLog:
   - changeSet:
-      id: Create countries table
+      id: Create foreign students table
       author: Sabuhi Huseynov
       changes:
         - createTable:
             schemaName: public
-            tableName: countries
+            tableName: foreign_students
             columns:
               - column:
                   name: id
                   type: bigint
                   autoIncrement: true
                   constraints:
-                    primaryKeyName: pk_countries
+                    primaryKeyName: pk_foreign_students
                     primaryKey: true
                     nullable: false
               - column:
-                  name: name
+                  name: country_name
                   type: varchar(255)
                   constraints:
                     nullable: false
-                  remarks: Name of the country
+                  remarks: foreign student's country
+              - column:
+                  name: count
+                  type: INTEGER
+                  constraints:
+                    nullable: false
+                  remarks: foreign student count
+              - column:
+                  name: university_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: universities_foreign_students_fk
               - column:
                   name: created_at
                   type: timestamp
@@ -35,4 +47,4 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                   remarks: When the record updated
-            remarks: Country Table
+            remarks: Students Table
