@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create foreign students table
+      author: Sabuhi Huseynov
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: foreign_students
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKeyName: pk_foreign_students
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: country_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: foreign student's country
+              - column:
+                  name: count
+                  type: INTEGER
+                  constraints:
+                    nullable: false
+                  remarks: foreign student count
+              - column:
+                  name: university_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: universities_foreign_students_fk
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: When the transaction created
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: When the record updated
+            remarks: Students Table

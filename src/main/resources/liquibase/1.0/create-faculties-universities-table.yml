@@ -1,0 +1,187 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create faculties table
+      author: Sabuhi Huseynov
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: faculties
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKeyName: pk_faculties
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name_az
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: Name of the faculty az
+              - column:
+                  name: name_en
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: Name of the faculty en
+              - column:
+                  name: name_ru
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: Name of the faculty ru
+              - column:
+                  name: icon
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: Icon
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: When the transaction created
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: When the record updated
+            remarks: Faculty Table
+
+  - changeSet:
+      id: Create universities table
+      author: Sabuhi Huseynov
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: universities
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKeyName: pk_universities
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: Name of the university
+              - column:
+                  name: email
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: Email of the university
+              - column:
+                  name: phone_number
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: Phone number of the university
+              - column:
+                  name: fax
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: fax of the university
+              - column:
+                  name: foreign_students_count
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: faculty_count
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: logo
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: logo of the university
+              - column:
+                  name: min_price
+                  type: INTEGER
+                  constraints:
+                    nullable: false
+                  remarks: min price for university
+              - column:
+                  name: about_university_az
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: About university az
+              - column:
+                  name: about_university_en
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: About university en
+              - column:
+                  name: about_university_ru
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: About university ru
+              - column:
+                  name: longitude
+                  type: DOUBLE
+                  constraints:
+                    nullable: false
+                  remarks: longitude for university
+              - column:
+                  name: latitude
+                  type: DOUBLE
+                  constraints:
+                    nullable: false
+                  remarks: latitude for university
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: When the transaction created
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: When the record updated
+            remarks: University Table
+
+  - changeSet:
+      id: create_faculties_universities_join_table
+      author: Sabuhi Huseynov
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: faculties_universities
+            columns:
+              - column:
+                  name: university_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    references: universities(id)
+                    foreignKeyName: universities_faculties_fk
+              - column:
+                  name: faculty_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    references: faculties(id)
+                    foreignKeyName: faculties_universities_fk
