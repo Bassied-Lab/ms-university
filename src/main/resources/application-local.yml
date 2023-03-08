@@ -5,5 +5,5 @@ spring:
     password: 12345
 
   liquibase:
-    change-log: liquibase/changelog-master.yml
+    change-log: db/changelog/changelog-master.yml
 

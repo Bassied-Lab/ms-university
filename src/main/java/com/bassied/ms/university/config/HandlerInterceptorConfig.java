@@ -1,6 +1,6 @@
 package com.bassied.ms.university.config;
 
-import com.bassied.ms.university.consts.Headers;
+import com.bassied.ms.university.model.consts.Headers;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
