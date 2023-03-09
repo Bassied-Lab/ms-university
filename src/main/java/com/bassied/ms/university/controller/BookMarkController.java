@@ -20,7 +20,7 @@ public class BookMarkController {
 
     @GetMapping("/count")
     public Integer count(@RequestHeader(Headers.USER_ID) Long userId) {
-        return bookmarkService.count(userId);
+        return bookmarkService.getCount(userId);
     }
 
     @PostMapping("/universities/{universityId}")

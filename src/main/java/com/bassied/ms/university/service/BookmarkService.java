@@ -7,6 +7,6 @@ public interface BookmarkService {
 
     void addBookmark(Long userId, Long university_id);
 
-    Integer count(Long userId);
+    Integer getCount(Long userId);
 
 }

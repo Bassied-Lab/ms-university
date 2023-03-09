@@ -1,7 +1,10 @@
 package com.bassied.ms.university.util;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Base64;
 
+@Component
 public class Base64Util {
 
     public static String encodeToString(String str) {
