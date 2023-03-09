@@ -11,5 +11,4 @@ public class Base64Util {
     public static byte[] decode(String base64Str) {
         return Base64.getUrlDecoder().decode(base64Str);
     }
-
 }
