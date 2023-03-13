@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    container_name: postgres
+    ports:
+      - '5433:5432'
+    build:
+      dockerfile: ./Dockerfile-db
+  ms-university:
+    build:
+      dockerfile: ./Dockerfile
+    image: ms-university:latest
+    container_name: ms-university
+    ports:
+      - '8080:8080'
+    depends_on:
+      db:
+        condition: service_started
+
+volumes:
+  postgres_data:
+    driver: local
+

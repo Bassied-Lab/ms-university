@@ -1,0 +1,80 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create Locations table
+      author: Sabuhi Huseynov
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: locations
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKeyName: pk_locations
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: city
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: city name
+              - column:
+                  name: country
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: country
+              - column:
+                  name: address_az
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: address az
+              - column:
+                  name: address_en
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: address en
+              - column:
+                  name: address_ru
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: address ru
+              - column:
+                  name: longitude
+                  type: DOUBLE
+                  constraints:
+                    nullable: false
+                  remarks: longitude
+              - column:
+                  name: latitude
+                  type: DOUBLE
+                  constraints:
+                    nullable: false
+                  remarks: latitude
+              - column:
+                  name: university_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: universities_locations_fk
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: When the transaction created
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: When the record updated
+            remarks: Locations Table
